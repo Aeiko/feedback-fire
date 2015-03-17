@@ -39,7 +39,7 @@
         Demonstraton of how to eempliment couters, timers, and task queues on Firebase. <br><br>
 
   
-    <button class="btn btn-success" ng-click="addCounter(theKey)">
+    <button class="btn btn-success" analytics-on="click" analytics-event="Add Counter" ng-click="addCounter(theKey)">
         Add Counter
     </button> with the key <input ng-model="theKey" type="input" ng-init="theKey='awesome'">
     <br>
@@ -59,7 +59,7 @@
         <button class="btn btn-success" ng-click="addCounter(k)">
             <span class="glyphicon"></span> Reset
         </button>
-        <button class="btn btn-success" ng-click="deleteCounter(k)">
+        <button class="btn btn-success" ng-click="deleteCounter(k)" analytics-on="click" analytics-event="Deleted">
             <span class="glyphicon"></span> Delete
         </button>
             </td>
@@ -221,7 +221,7 @@
         
 </div> <!-- container -->
 <script>
-  var myApp = angular.module("myApp", ["firebase","chart.js"]);
+  var myApp = angular.module("myApp", ["firebase","chart.js"], ['angulartics', 'angulartics.google.analytics']);
   myApp.controller('userController', ['$scope', '$firebase',
     function($scope, $firebase) {
     $scope.newuser = {};
@@ -466,8 +466,7 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-59559738-1', 'auto');
-  ga('send', 'pageview');
-
+  
 </script>
 </body>
 </html>
